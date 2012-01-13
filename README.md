@@ -7,13 +7,13 @@ Puedes ver el código final en este repositorio GitHub.
 ## 1. Instalando Ember.js
 
 Descarga el kit de inicio en [Ember Starter Kit](https://github.com/emberjs/starter-kit/downloads) 
-si aún no lo tienes. Descomprímelo y abre el directorio en tu editor de texto favorito. En este repositorio, estoy usando una versión customizada del kit de inicio con jQuery 1.7.1. Puedes encontrarlo en esta dirección: [cloned starter kit version](https://github.com/frodsan/starter-kit/downloads).
+si aún no lo tienes. Descomprímelo y abre el directorio en tu editor de texto favorito. En este repositorio, estoy usando una versión customizada del kit de inicio con jQuery 1.7.1. Puedes encontrarlo en esta dirección: [Ember Starter Kit with jQuery 1.7.1](https://github.com/frodsan/starter-kit/downloads).
 
-## 2. Core Concepts
+## 2. ¿Ember.js? ¿Por qué es genial?
 
-*Source: [Ember.js Website](http://emberjs.com/)*
+*Fuente: [Ember.js Sitio Web](http://emberjs.com/)*
 
-These are the three features that make Ember a joy to use:
+Estas son las 3 funcionalidades por las que usar Ember sea divertido:
 
 * Bindings
 * Computed properties
@@ -21,7 +21,9 @@ These are the three features that make Ember a joy to use:
 
 **Bindings:**
 
-Use bindings to keep properties between two different objects in sync. You just declare a binding once, and Ember will make sure changes get propagated in either direction.
+Usa bindings para mantener propiedades en sincronización entre 2 objetos diferentes.
+Sólo tienes que declarar el binding una vez. Ember se encargará de que los cambios 
+se propaguen en ambas direcciones.
 
 ```javascript
 MyApp.president = Ember.Object.create({
@@ -29,8 +31,9 @@ MyApp.president = Ember.Object.create({
 });
      
 MyApp.country = Ember.Object.create({
-  // Ending a property with 'Binding' tells Ember to
-  // create a binding to the presidentName property.
+  // Define la propiedad con 'Binding' al final
+  // y Ember creará automáticamete una conexión
+  // hacia la propiedad presidentName
   presidentNameBinding: 'MyApp.president.name'
 });
      
@@ -40,7 +43,7 @@ MyApp.country.get('presidentName');
 
 **Computed Properties:**
 
-Computed properties allow you to treat a function like a property:
+Computed Properties te permiten tratar a una función como una propiedad:
 
 ```javascript
 MyApp.president = Ember.Object.create({
@@ -49,8 +52,8 @@ MyApp.president = Ember.Object.create({
      
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
-       
-  // Call this flag to mark the function as a property
+     
+  // Llama a propert() para marcar la función como una propiedad  
   }.property()
 });
      
@@ -58,9 +61,11 @@ MyApp.president.get('fullName');
 // "Barack Obama"
 ```
 
-Computed properties are useful because they can work with bindings, just like any other property.
+Computed Properties son muy útiles porque pueden trabajar con bindings, como cualquier propiedad.
 
-Many computed properties have dependencies on other properties. For example, in the above example, the fullName property depends on *firstName* and *lastName* to determine its value. You can tell Ember about these dependencies like this:
+
+Computed properties pueden tener dependencias a otras propiedades. Por ejemplo, en el ejemplo de arriba, la propiedad fullName depende de *firstName* y *lastName* para determinar su valor. Puedes indicarle a Ember sobre
+esas propiedades de la siguiente manera:
 
 ```javascript
 MyApp.president = Ember.Object.create({
@@ -69,18 +74,19 @@ MyApp.president = Ember.Object.create({
      
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
-     
-  // Tell Ember that this computed property depends on firstName
-  // and lastName
+  
+  // Indica a Ember que esta computed property depende de
+  // firstName y lastName
   }.property('firstName', 'lastName')
 });
 ```
 
-Make sure you list these dependencies so Ember knows when to update bindings that connect to a computed property.
+Asegúrate de listar las dependencias para que Ember actualize los bindings
+que conectan la computed property.
 
 **Auto-updating templates:** 
 
-Ember uses [Handlebars](https://github.com/wycats/handlebars.js/), a semantic templating library. To take data from your JavaScript application and put it into the DOM, create a script tag and put it into your HTML, wherever you'd like the value to appear:
+Ember usa [Handlebars](https://github.com/wycats/handlebars.js/), una librería semántica de templates, para tomar infromación desde la aplicación JavaScript e insertarla en el DOM. Para usarlo, crea un script tag en tu HTML, cuando quieras que un valor aparezca:
 
 ```html
 <script type="text/x-handlebars">
@@ -88,7 +94,10 @@ Ember uses [Handlebars](https://github.com/wycats/handlebars.js/), a semantic te
 </script>
 ```
 
-Here's the best part: templates are bindings-aware. That means that if you ever change the value of the property that you told us to display, we'll update it for you automatically. And because you've specified dependencies, changes to those properties are reflected as well.
+La mejor parte es que los templates siempre están sincronizados con los bindings.
+Eso significa que si en aĺgún momento cambia el valor de una propiedad que se muestra
+en el template, Ember lo actualizará automáticamente por ti. Ésto también funciona
+de la misma manera con las funciones convertidas a propiedades.
 
 ## 3. Create the Namespace
 
