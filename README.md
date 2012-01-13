@@ -1,14 +1,13 @@
 # Primeros Pasos con Ember.js
 
-*Este tutorial es una adaptación de [la guía de SproutCore 2.0 "Getting Started" Guide](http://guides.sproutcore20.com/getting_started.html) para [Ember.js](http://emberjs.com/), 
-principalmente para evitar confusión entre los frameworks.*
+*Este tutorial es una adaptación en español de la guía ["SproutCore 2.0 Getting Started Guide"](http://guides.sproutcore20.com/getting_started.html) para [Ember.js](http://emberjs.com/).*
 
 Puedes ver el código final en este repositorio GitHub.
 
 ## 1. Instalando Ember.js
 
 Descarga el kit de inicio en [Ember Starter Kit](https://github.com/emberjs/starter-kit/downloads) 
-si aún no lo tienes. Descomprímelo y abre el directorio en tu editor de texto favorito. *En este repositorio, estoy usando mi propia versión del kit de inicio con jQuery 1.7.1. Puedes encontrarlo en esta dirección: [cloned starter kit version](https://github.com/frodsan/starter-kit). *
+si aún no lo tienes. Descomprímelo y abre el directorio en tu editor de texto favorito. En este repositorio, estoy usando una versión customizada del kit de inicio con jQuery 1.7.1. Puedes encontrarlo en esta dirección: [cloned starter kit version](https://github.com/frodsan/starter-kit/downloads).
 
 ## 2. Core Concepts
 
