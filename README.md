@@ -15,9 +15,9 @@ si aún no lo tienes. Descomprímelo y abre el directorio en tu editor de texto 
 
 Estas son las 3 funcionalidades por las que usar Ember sea divertido:
 
-* Bindings
-* Computed properties
-* Auto-updating templates
+* Bindings (Enlaces)
+* Computed properties (Funciones convertidas a propiedades)
+* Actualización Automática de Templates
 
 **Bindings:**
 
@@ -26,19 +26,19 @@ Sólo tienes que declarar el binding una vez. Ember se encargará de que los cam
 se propaguen en ambas direcciones.
 
 ```javascript
-MyApp.president = Ember.Object.create({
-  name: "Barack Obama"
+MyApp.trainer = Ember.Object.create({
+  name: 'Sergio Markarian'
 });
      
-MyApp.country = Ember.Object.create({
-  // Define la propiedad con 'Binding' al final
-  // y Ember creará automáticamete una conexión
-  // hacia la propiedad presidentName
-  presidentNameBinding: 'MyApp.president.name'
+MyApp.team = Ember.Object.create({
+  // Define la propiedad con 'Binding' al final,
+  // Ember creará automáticamete un enlace hacia
+  // la propiedad 'name' en el objeto 'MyApp.trainer'
+  trainerNameBinding: 'MyApp.trainer.name'
 });
      
-MyApp.country.get('presidentName');
-// "Barack Obama"
+MyApp.team.get('trainerName');
+// "Sergio Markarian"
 ```
 
 **Computed Properties:**
@@ -46,58 +46,58 @@ MyApp.country.get('presidentName');
 Computed Properties te permiten tratar a una función como una propiedad:
 
 ```javascript
-MyApp.president = Ember.Object.create({
-  firstName: "Barack",
-  lastName: "Obama",
+MyApp.trainer = Ember.Object.create({
+  firstName: 'Sergio',
+  lastName: 'Markarian',
      
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
      
-  // Llama a propert() para marcar la función como una propiedad  
+  // Llama a property() para marcar la función como una propiedad  
   }.property()
 });
      
-MyApp.president.get('fullName');
-// "Barack Obama"
+MyApp.trainer.get('fullName');
+// "Sergio Markarian"
 ```
 
-Computed Properties son muy útiles porque pueden trabajar con bindings, como cualquier propiedad.
+Computed Properties son muy útiles porque pueden trabajar con enlaces (bindings) como cualquier propiedad.
 
 
 Computed properties pueden tener dependencias a otras propiedades. Por ejemplo, en el ejemplo de arriba, la propiedad fullName depende de *firstName* y *lastName* para determinar su valor. Puedes indicarle a Ember sobre
 esas propiedades de la siguiente manera:
 
 ```javascript
-MyApp.president = Ember.Object.create({
-  firstName: "Barack",
-  lastName: "Obama",
+MyApp.trainer = Ember.Object.create({
+  firstName: 'Sergio',
+  lastName: 'Markarian',
      
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
   
-  // Indica a Ember que esta computed property depende de
-  // firstName y lastName
+  // Indica a Ember que este computed property depende de
+  // las propiedades firstName y lastName.
   }.property('firstName', 'lastName')
 });
 ```
 
-Asegúrate de listar las dependencias para que Ember actualize los bindings
-que conectan la computed property.
+Asegúrate de listar las dependencias para que Ember actualize los enlaces
+que conectan el computed property definido.
 
-**Auto-updating templates:** 
+**Actualización Automática de Templates:** 
 
-Ember usa [Handlebars](https://github.com/wycats/handlebars.js/), una librería semántica de templates, para tomar infromación desde la aplicación JavaScript e insertarla en el DOM. Para usarlo, crea un script tag en tu HTML, cuando quieras que un valor aparezca:
+Ember usa [Handlebars](https://github.com/wycats/handlebars.js/), una librería semántica de templates, para tomar infromación desde la aplicación JavaScript e insertarla en el DOM. Para usarlo, crea un script tag en tu HTML cuando quieras que un valor aparezca:
 
 ```html
 <script type="text/x-handlebars">
-  The President of the United States is {{MyApp.president.fullName}}.
+  The trainer of Barcelona FC is {{MyApp.trainer.fullName}}.
 </script>
 ```
 
-La mejor parte es que los templates siempre están sincronizados con los bindings.
+La mejor parte es que los templates siempre están sincronizados con los enlaces.
 Eso significa que si en aĺgún momento cambia el valor de una propiedad que se muestra
 en el template, Ember lo actualizará automáticamente por ti. Ésto también funciona
-de la misma manera con las funciones convertidas a propiedades.
+de la misma manera con las funciones convertidas a propiedades (Computed Properties).
 
 ## 3. Create the Namespace
 
