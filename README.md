@@ -99,21 +99,23 @@ Eso significa que si en aĺgún momento cambia el valor de una propiedad que se 
 en el template, Ember lo actualizará automáticamente por ti. Ésto también funciona
 de la misma manera con las funciones convertidas a propiedades (Computed Properties).
 
-## 3. Create the Namespace
+## 3. Creando el Namespace
 
-Open the JavaScript file located at `js/app.js`. Replace the default contents with the following:
+Abre el archivo JavaScript file ubicado en `js/app.js`. Reemplaza el contenido por defecto con el siguiente:
 
 ```javascript
 var Todos = Ember.Application.create();
 ```
 
-This code creates a namespace for your application (called Todos), which is also an instance of Ember.Application. **It is important that every Ember app creates an instance of Ember.Application, because it is responsible for routing browser events to your views.**
+Este código crea un namespace para tu aplicación (llamado Todos), el cuál también es una instancia de `Ember.Application`. **Es importante que cada aplicación de Ember cree una instancia de `Ember.Application`, 
+porque es el responsable de dirigir los eventos del navegador hacia las vistas.
 
-## 4. Defining Your Model
+## 4. Definiendo tu primer Modelo
 
-In this tutorial, we want to create a list for managing todos. Users should be able to create a new todo with a specific task, then check it off once it’s done.
+En este tutorial, nosotros queremos crear una lista para administrar nuestros tareas por hacer. Los usuarios
+deben poder crear una nueva tarea, luego marcarla una vez que se haya hecho.
 
-Let’s define our model as a new subclass of Ember.Object in the `js/app.js` file:
+Vamos a definir nuestro modelo como una nueva subclase de `Ember.Object` en el archivo `js/app.js`:
 
 ```javascript
 Todos.Todo = Ember.Object.extend({
@@ -121,10 +123,9 @@ Todos.Todo = Ember.Object.extend({
   isDone: false
 });
 ```
+*Asegúrate de haber insertado el nuevo código luego de haber definido el objeto `Todos`*
 
-*Make sure you insert the new code after the Todos object is created.*
-
-We’ve now defined a class with two properties: `title`, a String, and `isDone`, a Boolean.
+Hasta ahora hemos definido una clase con dos propiedades: `title`, un String, y `isDone`, como Boolean.
 
 ## 5. Managing the Model Using a Controller
 
