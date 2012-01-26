@@ -110,7 +110,7 @@ var Todos = Ember.Application.create();
 Este código crea un namespace para tu aplicación (llamado Todos), el cuál también es una instancia de `Ember.Application`. **Es importante que cada aplicación de Ember cree una instancia de `Ember.Application`, 
 porque es el responsable de dirigir los eventos del navegador hacia las vistas.
 
-## 4. Definiendo tu primer Modelo
+## 4. Definiendo el Modelo
 
 En este tutorial, nosotros queremos crear una lista para administrar nuestros tareas por hacer. Los usuarios
 deben poder crear una nueva tarea, luego marcarla una vez que se haya hecho.
