@@ -86,7 +86,7 @@ que conectan el computed property definido.
 
 **Actualización Automática de Templates:** 
 
-Ember usa [Handlebars](https://github.com/wycats/handlebars.js/), una librería semántica de templates, para tomar infromación desde la aplicación JavaScript e insertarla en el DOM. Para usarlo, crea un script tag en tu HTML cuando quieras que un valor aparezca:
+Ember usa [Handlebars](https://github.com/wycats/handlebars.js/), una librería semántica de templates, para tomar información desde la aplicación JavaScript e insertarla en el DOM. Para usarlo, crea un script tag en tu HTML cuando quieras que un valor aparezca:
 
 ```html
 <script type="text/x-handlebars">
@@ -107,8 +107,10 @@ Abre el archivo JavaScript file ubicado en `js/app.js`. Reemplaza el contenido p
 var Todos = Ember.Application.create();
 ```
 
-Este código crea un namespace para tu aplicación (llamado Todos), el cuál también es una instancia de `Ember.Application`. **Es importante que cada aplicación de Ember cree una instancia de `Ember.Application`, 
-porque es el responsable de dirigir los eventos del navegador hacia las vistas.
+Este código crea un namespace para tu aplicación (llamado Todos), el cuál también es una instancia de `Ember.Application`. 
+
+*Es importante que cada aplicación de Ember cree una instancia de `Ember.Application`, 
+porque es el responsable de dirigir los eventos del navegador hacia las vistas.*
 
 ## 4. Definiendo el Modelo
 
@@ -138,7 +140,7 @@ Todos.todosController = Ember.ArrayController.create({
 });
 ```
 
-**Note: ** In MVC frameworks, like Ember, the controller layer bridges the model layer, which is only concerned with a pure-data representation of objects, and the view layer, which is only concerned with representing those objects.
+**Note:** In MVC frameworks, like Ember, the controller layer bridges the model layer, which is only concerned with a pure-data representation of objects, and the view layer, which is only concerned with representing those objects.
 
 Now we have an array controller with no content. Let’s add a method to create a new todo:
 
@@ -228,7 +230,7 @@ Now that we have defined our view, let’s update the template to use our new vi
 </script>
 ```
 
-Now that we have UI to create new todos, let’s create the code to display thEmber. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Ember.CollectionView that renders every item in its underlying Array using the enclosed HTML.
+Now that we have UI to create new todos, let’s create the code to display them. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Ember.CollectionView that renders every item in its underlying Array using the enclosed HTML.
 
 ```html
 <script type="text/html">
