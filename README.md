@@ -259,7 +259,7 @@ This is actually a core concept in Ember, not just something that demos well. Em
 
 We now have the ability to add todos, but no way to mark them as done. Before the frustration of a never-ending todo list gets the better of us, let’s add the ability to mark todos complete.
 
-The first thing we need to do is add a checkbox to each todo list itEmber. As was mentioned earlier, if we want to handle events, such as user input, we need a view. In this case, we are adding a checkbox and want to be notified whenever the value of the checkbox is changed by the user. Let’s update the Handlebars template in `index.html` to look like the following:
+The first thing we need to do is add a checkbox to each todo list item. As was mentioned earlier, if we want to handle events, such as user input, we need a view. In this case, we are adding a checkbox and want to be notified whenever the value of the checkbox is changed by the user. Let’s update the Handlebars template in `index.html` to look like the following:
 
 ```html
 <script type="text/html">
@@ -283,7 +283,7 @@ We’ll use a property on the collection helper to set up this binding:
 ```html
 {{#collection contentBinding="Todos.todosController" tagName="ul"
   itemClassBinding="content.isDone"}}
-  {{view Èm.Checkbox titleBinding="parentView.content.title"
+  {{view Ember.Checkbox titleBinding="parentView.content.title"
     valueBinding="parentView.content.isDone"}}
 {{/collection}}
 ```
